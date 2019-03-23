@@ -12,9 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app');
 });
 
-Route::get('/curso', 'cursoController@index');
+
 Route::get('/media', 'mediaController@index');
 Route::post('/calcular-media', 'mediaController@calculo');
+
+# /curso
+Route::resource('/curso', 'cursoController');
+
