@@ -6,7 +6,8 @@
 
 <a name="" id="" class="btn btn-danger" href="curso/create" role="button">Criar</a>
 
-<table>
+
+<table class="table table-bordered table-dark table-hover">
     <tr>
         <th>Ações</th>
         <th>ID</th>
@@ -16,7 +17,10 @@
     @foreach($cursos as $curso)
 
         <tr>
-            <td>-</td>
+            <td>
+                <a class="btn btn-primary" href="curso/{{$curso->id}}/edit">Alterar</a>
+                <a class="btn btn-danger" href="curso/{{$curso->id}}/destroy">Excluir</a>
+            </td>
             <td>{{$curso->id}}</td>
             <td>{{$curso->nome}}</td>
 
