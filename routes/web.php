@@ -16,9 +16,19 @@ Route::get('/', function () {
 });
 
 
-Route::get('/media', 'mediaController@index');
-Route::post('/calcular-media', 'mediaController@calculo');
+/*Route::get('/media', 'mediaController@index');
+Route::post('/calcular-media', 'mediaController@calculo');*/
+
 
 # /curso
 Route::resource('/curso', 'cursoController');
+
+#/disciplina
+Route::resource('/disciplina', 'disciplinaController');
+
+#/aluno
+Route::resource('/aluno', 'alunoController');
+
+# /professor
+Route::resource('/professor', 'professorController');
 

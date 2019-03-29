@@ -19,14 +19,20 @@
         <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="">Cursos</a>
+                    <a class="nav-link" href="{{route('curso.index')}}">Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
+                    <a class="nav-link" href="{{route('disciplina.index')}}">Disciplinas</a>
+                </li>
+               <li class="nav-item">
+                    <a class="nav-link" href="{{route('aluno.index')}}">Alunos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Switch account</a>
+                    <a class="nav-link" href="{{route('professor.index')}}">Professores</a>
                 </li>
+                {{--      <li class="nav-item">
+                         <a class="nav-link" href="{{route('turma.index')}}">Turmas</a>
+                     </li>--}}
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
