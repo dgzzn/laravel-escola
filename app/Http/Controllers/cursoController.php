@@ -26,7 +26,9 @@ class cursoController extends Controller
      */
     public function create()
     {
-        //
+
+
+        return view('curso.formulario');
     }
 
     /**
@@ -37,7 +39,10 @@ class cursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $curso = new Curso($request->all());
+        $curso->save();
+
+        return redirect('curso');
     }
 
     /**
@@ -82,6 +87,9 @@ class cursoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $curso = Curso::find($id)->delete();
+
+
+        return redirect('curso');
     }
 }

@@ -9,4 +9,8 @@ class Disciplina extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+    public function curso() {
+        return $this->belongsTo('App\Curso');
+    }
 }

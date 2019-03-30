@@ -12,6 +12,7 @@
         <th>Ações</th>
         <th>ID</th>
         <th>Nome</th>
+        <th>Curso</th>
     </tr>
 
     @foreach($disciplinas as $disciplina)
@@ -23,6 +24,7 @@
             </td>
             <td>{{$disciplina->id}}</td>
             <td>{{$disciplina->nome}}</td>
+            <td>{{$disciplina->curso->nome}}</td>
 
         </tr>
 

@@ -9,6 +9,9 @@ class Curso extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+    protected $fillable = ['nome', 'duracao'];
 
-
+    public function disciplina(){
+        return $this->hasMany('app\Disciplina');
+    }
 }
