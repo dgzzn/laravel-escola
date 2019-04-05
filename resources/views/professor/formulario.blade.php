@@ -10,7 +10,7 @@
 
         </div>
         <div class="col-sm-8">
-            <form action="/aluno" method="post">
+            <form action="/professor" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="nome"><b>Nome</b></label>
@@ -24,6 +24,10 @@
                 <div class="form-group">
                     <label for="nome"><b>Telefone</b></label>
                     <input type="text" class="form-control" name="telefone" id="telefone" aria-describedby="helpId" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="nome"><b>CPF</b></label>
+                    <input type="text" class="form-control" name="cpf" id="cpf" aria-describedby="helpId" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="nome"><b>Email</b></label>

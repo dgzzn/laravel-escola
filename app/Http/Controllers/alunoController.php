@@ -37,7 +37,10 @@ class alunoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $aluno = new Aluno($request->all());
+        $aluno->save();
+
+        return redirect('aluno');
     }
 
     /**
@@ -82,6 +85,9 @@ class alunoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $aluno = Aluno::find($id)->delete();
+
+
+        return redirect('aluno');
     }
 }

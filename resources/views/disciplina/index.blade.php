@@ -20,7 +20,7 @@
         <tr>
             <td>
                 <a class="btn btn-primary" href="disciplina/{{$disciplina->id}}/edit">Alterar</a>
-                <a class="btn btn-danger" href="disciplina/{{$disciplina->id}}/destroy">Excluir</a>
+                <a class="btn btn-danger" href="disciplina/{{$disciplina->id}}/delete">Excluir</a>
             </td>
             <td>{{$disciplina->id}}</td>
             <td>{{$disciplina->nome}}</td>

@@ -28,11 +28,23 @@ Route::get('/curso/{id}/delete', 'cursoController@destroy');
 
 #/disciplina
 Route::resource('/disciplina', 'disciplinaController');
+Route::get('/disciplina/{id}/delete', 'disciplinaController@destroy');
 
 #/aluno
 Route::resource('/aluno', 'alunoController');
+Route::get('/aluno/{id}/delete', 'alunoController@destroy');
 
 # /professor
 Route::resource('/professor', 'professorController');
+Route::get('/professor/{id}/delete', 'professorController@destroy');
+
+#/turma
+Route::resource('/turma', 'turmaController');
+Route::get('/turma/{id}/delete', 'turmaController@destroy');
+
+#turma_aluno
+Route::resource('/turma_aluno', 'turmaalunoController');
+Route::get('/turma_aluno/{id}/delete', 'turmaalunoController@destroy');
+
 
 

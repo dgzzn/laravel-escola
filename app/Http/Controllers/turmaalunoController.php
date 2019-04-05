@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Professor;
+use App\TurmaAluno;
 use Illuminate\Http\Request;
 
-class professorController extends Controller
+class turmaalunoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,12 @@ class professorController extends Controller
      */
     public function index()
     {
-        $professores = Professor::all();
+        $turma_alunos = TurmaAluno::all();
+        /*echo '<pre>';
+        print_r($turma_alunos);
+        echo '</pre>';*/
 
-        return view('professor.index', compact('professores'));
+        return view('turma_aluno.index', compact('turma_alunos'));
     }
 
     /**
@@ -26,7 +29,7 @@ class professorController extends Controller
      */
     public function create()
     {
-        return view('professor.formulario');
+        //
     }
 
     /**
@@ -37,10 +40,7 @@ class professorController extends Controller
      */
     public function store(Request $request)
     {
-        $professor = new Professor($request->all());
-        $professor->save();
-
-        return redirect('professor');
+        //
     }
 
     /**
@@ -85,8 +85,6 @@ class professorController extends Controller
      */
     public function destroy($id)
     {
-        $professor = Professor::find($id)->delete();
-
-        return redirect('professor');
+        //
     }
 }

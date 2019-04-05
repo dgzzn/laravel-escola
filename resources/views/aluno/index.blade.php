@@ -22,7 +22,7 @@
         <tr>
             <td>
                 <a class="btn btn-primary" href="aluno/{{$aluno->id}}/edit">Alterar</a>
-                <a class="btn btn-danger" href="aluno/{{$aluno->id}}/destroy">Excluir</a>
+                <a class="btn btn-danger" href="aluno/{{$aluno->id}}/delete">Excluir</a>
             </td>
             <td>{{$aluno->id}}</td>
             <td>{{$aluno->matricula}}</td>

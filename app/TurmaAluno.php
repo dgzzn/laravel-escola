@@ -3,9 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TurmaAluno extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+    public function turma(){
+        return $this->belongsTo('App\Turma');
+    }
+
+    public function aluno(){
+        return $this->belongsTo('App\Aluno');
+    }
 }

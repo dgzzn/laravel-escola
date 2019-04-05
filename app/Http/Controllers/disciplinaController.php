@@ -26,7 +26,7 @@ class disciplinaController extends Controller
      */
     public function create()
     {
-        //
+        return view('disciplina.formulario');
     }
 
     /**
@@ -37,7 +37,10 @@ class disciplinaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $disciplina = new Disciplina($request->all());
+        $disciplina->save();
+
+        return redirect('disciplina');
     }
 
     /**
@@ -82,6 +85,9 @@ class disciplinaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $disciplina = Disciplina::find($id)->delete();
+
+
+        return redirect('disciplina');
     }
 }
