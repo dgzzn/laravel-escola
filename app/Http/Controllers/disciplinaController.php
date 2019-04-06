@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Curso;
 use App\Disciplina;
+use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 
 class disciplinaController extends Controller
@@ -26,7 +28,8 @@ class disciplinaController extends Controller
      */
     public function create()
     {
-        return view('disciplina.formulario');
+        $cursos = Curso::all();
+        return view('disciplina.formulario', compact('cursos'));
     }
 
     /**

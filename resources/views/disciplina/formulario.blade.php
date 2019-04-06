@@ -16,10 +16,13 @@
                     <label for="nome"><b>Disciplina</b></label>
                     <input type="text" class="form-control" name="nome" id="nome" aria-describedby="helpId" placeholder="">
                 </div>
-                <div class="form-group">
-                    <label for="duracao"><b>Curso</b></label>
-                    <input type="number" class="form-control" name="curso_id" id="curso_id" aria-describedby="helpId" placeholder="">
-                </div>
+
+                <select class="form-control" name="curso_id" id="curso">
+                    <option value="" selected disabled>Selecione um curso</option>
+                    @foreach ($cursos as $curso)
+                        <option value="{{$curso->id}}">{{$curso->nome}}</option>
+                    @endforeach
+                </select>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
         </div>
