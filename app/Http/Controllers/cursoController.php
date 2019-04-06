@@ -26,9 +26,9 @@ class cursoController extends Controller
      */
     public function create()
     {
+        $curso = new Curso();
 
-
-        return view('curso.formulario');
+        return view('curso.formulario', compact('curso'));
     }
 
     /**
@@ -39,7 +39,13 @@ class cursoController extends Controller
      */
     public function store(Request $request)
     {
-        $curso = new Curso($request->all());
+        $curso = new Curso();
+
+        if($request->id) {
+            $curso = $curso->find($request->id);
+        }
+
+        $curso->fill($request->all());
         $curso->save();
 
         return redirect('curso');
@@ -64,7 +70,8 @@ class cursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $curso = Curso::find($id);
+        return view('curso.formulario', compact('curso'));
     }
 
     /**

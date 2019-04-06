@@ -26,7 +26,8 @@ class alunoController extends Controller
      */
     public function create()
     {
-        return view('aluno.formulario');
+        $aluno = new Aluno();
+        return view('aluno.formulario', compact('aluno'));
     }
 
     /**
@@ -37,7 +38,13 @@ class alunoController extends Controller
      */
     public function store(Request $request)
     {
-        $aluno = new Aluno($request->all());
+        $aluno = new Aluno();
+
+        if($request->id){
+            $aluno = $aluno->find($request->id);
+        }
+
+        $aluno->fill($request->all());
         $aluno->save();
 
         return redirect('aluno');
@@ -62,7 +69,8 @@ class alunoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $aluno = Aluno::find($id);
+        return view('aluno.formulario', compact('aluno'));
     }
 
     /**
