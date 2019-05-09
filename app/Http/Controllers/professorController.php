@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Professor;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,9 @@ class professorController extends Controller
      */
     public function create()
     {
-        return view('professor.formulario');
+        $professor = new Professor();
+
+        return view('professor.formulario', compact('professor'));
     }
 
     /**
@@ -37,7 +40,11 @@ class professorController extends Controller
      */
     public function store(Request $request)
     {
-        $professor = new Professor($request->all());
+        $professor = new Professor();
+        if($request->id) {
+            $professor = $professor->find($request->id);
+        }
+        $professor->fill($request->all());
         $professor->save();
 
         return redirect('professor');
@@ -62,7 +69,8 @@ class professorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $professor = Professor::find($id);
+        return view('professor.formulario', compact('professor'));
     }
 
     /**

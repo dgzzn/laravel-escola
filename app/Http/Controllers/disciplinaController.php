@@ -29,7 +29,9 @@ class disciplinaController extends Controller
     public function create()
     {
         $cursos = Curso::all();
-        return view('disciplina.formulario', compact('cursos'));
+        $disciplina = new Disciplina();
+        //echo '<pre>',print_r($cursos,1),'</pre>';die;
+        return view('disciplina.formulario2', compact( 'disciplina','cursos'));
     }
 
     /**
@@ -40,7 +42,11 @@ class disciplinaController extends Controller
      */
     public function store(Request $request)
     {
-        $disciplina = new Disciplina($request->all());
+        $disciplina = new Disciplina();
+        if($request->id) {
+            $disciplina = $disciplina->findOrFail($request->id);
+        }
+        $disciplina->fill($request->all());
         $disciplina->save();
 
         return redirect('disciplina');
@@ -65,7 +71,10 @@ class disciplinaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cursos = Curso::all();
+        $disciplina = Disciplina::find($id);
+
+        return view('disciplina.formulario', compact('disciplina', 'cursos'));
     }
 
     /**
