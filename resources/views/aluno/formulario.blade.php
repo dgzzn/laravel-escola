@@ -60,6 +60,10 @@
                         <div class="form-group">
                             <label for="uf">Estado</label>
                             <select class="form-control" name="uf" id="uf">
+                                {{--@foreach($ufs as $uf)
+                                    <option value="{{$uf->sigla}}">{{$uf->nome}}</option>
+                                @endforeach--}}
+
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
                                 <option value="AP">Amapá</option>
@@ -95,6 +99,15 @@
                     <label for="nome"><b>Complemento</b></label>
                     <input type="text" class="form-control" value="{{$aluno->complemento}}" name="complemento" id="complemento" aria-describedby="helpId" placeholder="">
                 </div>
+                <div class="form-group">
+                    <label for="">Município</label>
+                    <select class="form-control" name="municipio" id="municipio">
+                       @foreach($municipios as $municipio)
+                            <option value="{{$municipio->nome}}">{{$municipio->nome}}</option>
+                       @endforeach
+
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
         </div>
@@ -115,7 +128,22 @@
                         }
                     })
                 });
+
+                $("#uf").change(function(){
+                    $.ajax({
+                        url: 'municipio/recuperar-por-uf/' + $("#uf").val(),
+                        success: function (dados) {
+                            $("#municipio").html('<option value="">Selecione</option>');
+
+                            dados.forEach(function (obj) {
+                                $("#municipio").append('<option value="'+ obj.id +'">'+ obj.nome +'</option>');
+                            });
+                        }
+                    });
+                })  ;
+
             });
+
 
 
         </script>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Aluno;
+use App\Municipio;
+use App\UF;
 use Illuminate\Http\Request;
 
 class alunoController extends Controller
@@ -27,7 +29,11 @@ class alunoController extends Controller
     public function create()
     {
         $aluno = new Aluno();
-        return view('aluno.formulario', compact('aluno'));
+        /*$ufs = UF::all();*/
+        $municipios = Municipio::all();
+
+
+        return view('aluno.formulario', compact('aluno', 'municipios'));
     }
 
     /**

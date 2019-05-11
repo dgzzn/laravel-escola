@@ -46,4 +46,4 @@ Route::resource('/turma_aluno', 'turmaalunoController');
 Route::get('/turma_aluno/{id}/delete', 'turmaalunoController@destroy');
 
 
-
+Route::get('/municipio/recuperar-por-uf/{uf}', 'MunicipioController@recuperarPorUF');

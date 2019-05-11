@@ -2,7 +2,7 @@
 
 @section('conteudo')
 
-<h1>turma_alunoses</h1>
+<h1>Turmas e Alunos</h1>
 
 <a name="" id="" class="btn btn-danger" href="turma_alunos/create" role="button">Criar</a>
 

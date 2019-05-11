@@ -11,5 +11,6 @@ class Professor extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'professores';
 
-    protected $fillable = ['nome', 'matricula','cpf','telefone', 'email'];
+    protected $fillable = ['nome', 'matricula','cpf','telefone', 'email', 'logradouro',
+        'bairro', 'municipio', 'uf', 'complemento'];
 }
